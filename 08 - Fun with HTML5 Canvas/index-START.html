@@ -21,6 +21,8 @@ ctx.lineCap = 'round';
 
 ctx.lineWidth = 100;
 
+ctx.globalCompositeOperation = 'multiply';
+
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
@@ -44,7 +46,12 @@ function draw(e) {
   if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
     direction = !direction;
   }
-  ctx.lineWidth++;
+
+  if (direction) {
+    ctx.lineWidth++;
+  } else {
+    ctx.lineWidth--;
+  };
 };
 
 canvas.addEventListener('mousemove', draw);
