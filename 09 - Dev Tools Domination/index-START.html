@@ -19,27 +19,61 @@
 
     // Regular
 
+    console.log('Hello');
+
     // Interpolated
 
+    console.log('Hello I am a %s string', 'Stuff');
+
     // Styled
+    console.log('%c I am some great text', 'font-size:50px; color:green');
 
     // warning!
+    console.warn('HELP');
 
     // Error :|
 
+    console.error('OOPS');
+
     // Info
+    console.info('Some interesting stuff here!');
 
     // Testing
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ouch'), 'You fucked up!');
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
+
+    console.clear();
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
 
     // counting
+    console.count('Wes');
+    console.count('David');
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/davideverett89')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+      console.table(dogs);
 
   </script>
 </body>
