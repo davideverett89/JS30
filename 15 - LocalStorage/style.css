@@ -74,6 +74,19 @@ h2 {
   margin-top: 20px;
 }
 
+.btn-container {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn-container button {
+  padding: 10px;
+  outline: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .add-items input {
   padding: 10px;
   outline: 0;
