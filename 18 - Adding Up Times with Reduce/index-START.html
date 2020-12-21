@@ -182,6 +182,49 @@
     </li>
   </ul>
 <script>
+
+
+const timeNodes = [...document.querySelectorAll('[data-time]')];
+
+const seconds = timeNodes
+  .map(node => node.dataset.time)
+  .map(timeCode => {
+    const [mins, secs] = timeCode.split(':').map(parseFloat);
+    return (mins * 60) + secs;
+  })
+  .reduce((acc, curr) => acc + curr);
+
+let secondsLeft = seconds;
+const hours = Math.floor(secondsLeft / 3600);
+secondsLeft = secondsLeft % 3600;
+
+const mins = Math.floor(secondsLeft / 60);
+secondsLeft = secondsLeft % 60;
+
+console.log(hours, mins, secondsLeft);
+
+
+  
+/*
+ function convertToSeconds(time) {
+  const [minutes, seconds] = time.split(':');
+  const totalSeconds = (parseInt(minutes) * 60) + parseInt(seconds);
+  return totalSeconds;
+}
+
+
+function addTime(list) {
+  let count = 0;
+  list.forEach(item => {
+    const { time } = item.dataset;
+    count += convertToSeconds(time);
+  });
+  console.log(count / 60);
+}
+
+addTime(timeNodes);
+*/
+
 </script>
 </body>
 </html>
